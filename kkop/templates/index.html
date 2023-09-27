@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+    <style>
+        body{
+            background-color: #fed000;
+            font-family: "Bebas Neue";
+            margin: 0;
+            padding: 0;
+        }
+        .section {
+            text-align: center;
+            background-color: #fed000;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .section:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            color: #191919;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #191919;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background-color: #000000;
+        }
+
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vh;
+        }
+
+        .logo {
+            width: 200px;
+        }
+
+        .copyright {
+            text-align: center;
+            font-family: "Coolvetica Rg";
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '../static/style.css' %}">
+    <title>Anasayfa | KKOP</title>
+</head>
+<body class="body">
+<div class="container" ><img class="logo" src="{% static '/design/logo.png' %}" alt="logo"></div>
+
+   <div class="section" id="detection">
+        <h1>Object Detection</h1>
+        <a href="{% url 'detection_page' %}" class="button">Detection Bölümüne Git</a>
+    </div>
+
+    <div class="section" id="segmentation">
+        <h1>Object Segmentation</h1>
+        <a href="{% url 'segmentation_page' %}" class="button">Segmentation Bölümüne Git</a>
+    </div>
+
+    <div class="section" id="chat">
+        <h1>Chat AI</h1>
+        <a href="{% url 'upload_chat' %}" class="button">Chat Bölümüne Git</a>
+    </div>
+
+<div class="copyright">
+        <p>Tüm Haklar Saklıdır | 2023 | Muhammet Kökten</p>
+    </div>
+</body>
+</html>
