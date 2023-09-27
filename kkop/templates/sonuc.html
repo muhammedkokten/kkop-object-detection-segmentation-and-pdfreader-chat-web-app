@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <style>
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '../static/sonuc.css' %}">
+    <title>Result | KKOP</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="resim-kutusu">
+        {% if son_resim %}
+            <h2>{{ son_resim.title }}</h2>
+            <img src="{{ son_resim.result_image.url }}" alt="{{ son_resim.title }}" class="resim">
+        {% else %}
+            <p>Not Found File</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="sidebar">
+    <h1>History</h1>
+    <ul>
+        {% for history in history_path %}
+
+            {% if history.result_image.url %}
+                <li><a href="{{ history.result_image.url }}">Geçmiş Tarama{{ history.id }} <img
+                        src="{{ history.result_image.url }}" class="kucukresim"></a></li>
+            {% endif %}
+        {% empty %}
+            <li>Not Found File</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="footer">
+    <a href="{% url 'index' %}" class="home-button">Home</a>
+    <a href="{% url 'detection_page' %}" class="home-button">Detection</a>
+    <a href="{% url 'segmentation_page' %}" class="home-button">Segmentation</a>
+    <a href="{% url 'chat_page' %}" class="home-button">Chat</a>
+</div>
+</body>
+</html>
+

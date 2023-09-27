@@ -1,0 +1,97 @@
+body {
+    background-color: #fed000;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 100vh;
+}
+
+.chat-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 10px;
+    background-color: #191919;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* Başlığı yatayda ortala */
+    padding-top: 20px; /* İsteğe bağlı: Başlığı yukarı doğru biraz kaydırır */
+}
+
+.chat-messages {
+    overflow-y: auto;
+    max-height: 500px;
+    background-color: #272727;
+    padding: 200px;
+    overflow-x: hidden;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    width: 200%;
+}
+
+.sent {
+    background-color: #fed000;
+    color: #191919;
+    text-align: left;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 70%;
+    margin-right: auto;
+}
+
+.received {
+    background-color: #ececec;
+    color: #333;
+    text-align: left;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 70%;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    width: 450px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+#send-button {
+    background-color: #fed000;
+    color: #191919;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#send-button:hover {
+    background-color: orangered;
+}

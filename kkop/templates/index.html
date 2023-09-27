@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '../static/style.css' %}">
+    <title>Anasayfa | KKOP</title>
+</head>
+<body class="body">
+<div class="container"><img class="logo" src="{% static '/design/logo.png' %}" alt="logo"></div>
+
+<div class="section" id="detection">
+    <h1>Object Detection</h1>
+    <a href="{% url 'detection_page' %}" class="button">Detection Bölümüne Git</a>
+</div>
+
+<div class="section" id="segmentation">
+    <h1>Object Segmentation</h1>
+    <a href="{% url 'segmentation_page' %}" class="button">Segmentation Bölümüne Git</a>
+</div>
+
+<div class="section" id="chat">
+    <h1>Chat AI</h1>
+    <a href="{% url 'upload_chat' %}" class="button">Chat Bölümüne Git</a>
+</div>
+
+<div class="copyright">
+    <p>Tüm Haklar Saklıdır | 2023 | Muhammet Kökten</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function setValueAndSubmit(value) {
+            document.getElementById('hidden-value').value = value;
+            document.querySelector('form').submit();
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '../static/object.css' %}">
+    <title>Object Segmentation</title>
+</head>
+<body>
+<div class="container">
+    <img src="{% static 'design/logo.png' %}" class="logo">
+    <h1>Object Segmentation</h1>
+    <form method="POST" action="{% url 'upload_image' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image">
+        <input type="text" name="title" placeholder="Resim Başlığı">
+        <input type="hidden" name="value" id="hidden-value" value="0">
+        <button type="button" onclick="setValueAndSubmit(1)">Work It</button>
+    </form>
+</div>
+<div class="footer">
+    <a href="{% url 'index' %}" class="home-button">Home</a>
+</div>
+</body>
+</html>

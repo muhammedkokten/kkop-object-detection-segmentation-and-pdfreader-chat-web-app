@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function setValueAndSubmit() {
+            var v7Radio = document.querySelector('input[name="version"][value="v7"]');
+            var v8Radio = document.querySelector('input[name="version"][value="v8"]');
+            var hiddenValue = document.getElementById('hidden-value');
+
+            if (v7Radio.checked) {
+                hiddenValue.value = '2';
+            } else if (v8Radio.checked) {
+                hiddenValue.value = '0';
+            }
+
+            document.querySelector('form').submit();
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '../static/object.css' %}">
+    <title>Object Detection</title>
+</head>
+<body>
+<div class="container">
+    <img src="{% static 'design/logo.png' %}" class="logo">
+    <h1>Object Detection</h1>
+    <div class="radio-options">
+        <label class="custom-radio">
+            <input type="radio" name="version" value="v7">
+            <span class="radio-button"></span>
+            Version 7
+        </label>
+
+        <label class="custom-radio">
+            <input type="radio" name="version" value="v8">
+            <span class="radio-button"></span>
+            Version 8
+        </label>
+
+        <form method="POST" action="{% url 'upload_image' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image">
+            <input type="text" name="title" placeholder="Resim Başlığı">
+            <input type="hidden" name="value" id="hidden-value" value="0">
+            <button type="button" onclick="setValueAndSubmit()">Work It</button>
+        </form>
+    </div>
+    <div class="footer">
+        <a href="{% url 'index' %}" class="home-button">Home</a>
+    </div>
+</body>
+</html>
